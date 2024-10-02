@@ -1,0 +1,27 @@
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 32px;
+    background-color: #6278F7;
+    padding: 32px;
+}
+
+.footer .logoMidia {
+    display: flex;
+    gap: 32px;
+}
+
+.footer .logoMidia img {
+    width: 23px;
+}
+
+.footer .logoOrgano img {
+    width: 120px;
+}
+
+.footer .marcaDgua h6 {
+    font-size: 15px;
+    color: white;
+}
