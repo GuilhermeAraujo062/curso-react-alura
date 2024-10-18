@@ -6,7 +6,7 @@ import Footer from './componentes/Footer';
 
 function App() {
 
-  const times = [
+  const [times, setTimes] = useState([
     {
       nome: 'Programação',
       corPrimaria: '#57C278',
@@ -42,17 +42,25 @@ function App() {
       corPrimaria: '#FF8A29',
       corSecundaria: '#FFEEDF'
     },
-  ]
+  ])
 
   const [colaboradores, setColaboradores] = useState([]);
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
-    debugger
     setColaboradores([...colaboradores, colaborador]);
   }
 
   function deletarColaborador() {
     console.log('deletando colaborador');
+  }
+
+  function mudarCorDoTime(cor, nome) {
+    setTimes(times.map(time => {
+      if(time.nome === nome) {
+        time.corPrimaria = cor;
+      }
+      return time;
+    }));
   }
 
   return (
@@ -61,6 +69,7 @@ function App() {
       <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
 
       {times.map(time => <Time 
+      mudarCor={mudarCorDoTime}
       key={time.nome} 
       nome={time.nome} 
       corPrimaria={time.corPrimaria} 
