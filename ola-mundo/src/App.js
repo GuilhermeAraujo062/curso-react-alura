@@ -1,8 +1,16 @@
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Inicio from "./paginas/Inicio";
+import SobreMim from "./paginas/SobreMim";
 
 function App() {
   return (
-    <h1>Ola Mundo</h1>
+    <BrowserRouter>
+      <Routes>
+        <Route  path="/" element={<Inicio/>} />
+        <Route path="/SobreMim" element={<SobreMim/>} />
+        <Route path="*" element={<div>Página não encontrada</div>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
